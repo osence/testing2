@@ -6,27 +6,27 @@ using namespace std;
 class Vector
 {
 private:
-    long int* Vect;
-    long int n;
+    int* Vect;
+    int n;
 
     void Create()
     {
-        Vect = new long int [n];
+        Vect = new int [n];
     }
 
 public:
     // constructors and destructor
     Vector() : n(5) { Create(); }
-    Vector(long int i) : n(i) { Create(); }
+    Vector(int i) : n(i) { Create(); }
     /*~Matrix()
     {
         for (int z = 0; z < m; z++)
             delete[] Matr[z];
         delete[] Matr;
     }*/
-    long int getSize() { return n; }
+    int getSize() { return n; }
     // methods
-    long int& Element(long int i)
+    int& Element(int i)
     {
         if (i < n)
             return Vect[i];
@@ -34,7 +34,7 @@ public:
             cout << "Error: 1";
     }
 
-    void MultiplyBy(long int x)
+    void MultiplyBy(int x)
     {
         for (int i = 0; i < n; i++)
                 Vect[i] *= x;

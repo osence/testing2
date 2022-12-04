@@ -5,18 +5,18 @@ using namespace std;
 class Matrix
 {
 private:
-    long int** Matr;
-    long int m;
-    long int n;
+    int** Matr;
+    int m;
+    int n;
 
     void Create()
     {
-        Matr = new long int* [m];
+        Matr = new int* [m];
         for (int z = 0; z < m; z++)
-            Matr[z] = new long int[n];
+            Matr[z] = new int[n];
     }
 protected:
-    void MultiplyBy(long int x)
+    void MultiplyBy(int x)
     {
         for (int i = 0; i < m; i++)
             for (int j = 0; j < n; j++)
@@ -25,18 +25,18 @@ protected:
 public:
     // constructors and destructor
     Matrix() : m(5), n(5) { Create(); }
-    Matrix(long int i) : m(i), n(i) { Create(); }
-    Matrix(long int i, long int j) : m(i), n(j) { Create(); }
+    Matrix(int i) : m(i), n(i) { Create(); }
+    Matrix(int i, int j) : m(i), n(j) { Create(); }
     /*~Matrix()
     {
         for (int z = 0; z < m; z++)
             delete[] Matr[z];
         delete[] Matr;
     }*/
-    long int getNSize() { return n; }
-    long int getMSize() { return m; }
+    int getNSize() { return n; }
+    int getMSize() { return m; }
     // methods
-    long int& Element(long int i, long int j)
+    int& Element(int i, int j)
     {
         if (i < m && j < n)
             return Matr[i][j];
