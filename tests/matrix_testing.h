@@ -24,22 +24,22 @@ TEST(TestCaseMatrix, TestFindMatrixElement) {
 
 //Тест на присвоение значения элементу матрицы и его получения
 TEST(TestCaseMatrix, TestCombineMatrixOperations) {
-	Matrix M(2, 2);
+	MatrixTest M(2, 2);
 	M.Element(0, 0) = 2;
 	M.Element(0, 1) = -1;
 	M.Element(1, 0) = 5;
 	M.Element(1, 1) = 3;
-	M.MultiplyBy(8);
+	M.WrapMultiplyBy(8);
 	M.MultiplyOnMatrix(M);
 
 	//L equals M
-	Matrix L(2, 2);
+	MatrixTest L(2, 2);
 	L.Element(0, 0) = 2;
 	L.Element(0, 1) = -1;
 	L.Element(1, 0) = 5;
 	L.Element(1, 1) = 3;
 	L.MultiplyOnMatrix(L);
-	L.MultiplyBy(8);
+	L.WrapMultiplyBy(8);
 
 	EXPECT_TRUE(M.Element(0, 0) == L.Element(0, 0));
 	EXPECT_TRUE(M.Element(0, 1) == L.Element(0, 1));
