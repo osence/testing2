@@ -10,7 +10,7 @@
 
 class MatrixTest : public Matrix {
 public:
-	void WrapMultiplyBy(int a) { return MultiplyBy(a); }
+	void WrapMultiplyBy(long int a) { return MultiplyBy(a); }
 };
 //Тест на присвоение значения элементу матрицы и его получения
 TEST(TestCaseMatrix, TestFindMatrixElement) {
