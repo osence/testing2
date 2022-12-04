@@ -7,6 +7,11 @@
 
 
 #define MAXLINE 1024
+
+class MatrixTest : public Matrix {
+public:
+	void WrapMultiplyBy(int a) { return MultiplyBy(a); }
+};
 //Тест на присвоение значения элементу матрицы и его получения
 TEST(TestCaseMatrix, TestFindMatrixElement) {
 	Matrix M(5, 5);
@@ -45,12 +50,12 @@ TEST(TestCaseMatrix, TestCombineMatrixOperations) {
 
 //Тест на операцию умножения матрицы на число
 TEST(TestCaseMatrix, TestMultiplyMatrixByNumber) {
-	Matrix M(2, 2);
+	MatrixTest M(2, 2);
 	M.Element(0, 0) = 2;
 	M.Element(0, 1) = -1;
 	M.Element(1, 0) = 5;
 	M.Element(1, 1) = 3;
-	M.MultiplyBy(-3);
+	M.WrapMultiplyBy(-3);
 	EXPECT_EQ(M.Element(0, 0), -6);
 	EXPECT_EQ(M.Element(0, 1), 3);
 	EXPECT_EQ(M.Element(1, 0), -15);

@@ -15,7 +15,13 @@ private:
         for (int z = 0; z < m; z++)
             Matr[z] = new long int[n];
     }
-
+protected:
+    void MultiplyBy(long int x)
+    {
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++)
+                Matr[i][j] *= x;
+    }
 public:
     // constructors and destructor
     Matrix() : m(5), n(5) { Create(); }
@@ -36,13 +42,6 @@ public:
             return Matr[i][j];
         else
             cout << "Error: 1";
-    }
-
-    void MultiplyBy(long int x)
-    {
-        for (int i = 0; i < m; i++)
-            for (int j = 0; j < n; j++)
-                Matr[i][j] *= x;
     }
 
     Matrix MultiplyOnMatrix(Matrix B) 
