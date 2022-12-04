@@ -73,7 +73,6 @@ int main() {
 	M.Element(0, 1) = -1;
 	M.Element(1, 0) = 5;
 	M.Element(1, 1) = 3;
-	M.MultiplyBy(8);
 	M.MultiplyOnMatrix(M);
 
 	//L equals M
@@ -83,7 +82,6 @@ int main() {
 	L.Element(1, 0) = 5;
 	L.Element(1, 1) = 3;
 	L.MultiplyOnMatrix(L);
-	L.MultiplyBy(8);
 	M.Display();
 	cout << endl;
 	L.Display();
