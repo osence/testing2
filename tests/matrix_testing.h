@@ -10,6 +10,7 @@
 
 class MatrixTest : public Matrix {
 public:
+	using Matrix::Matrix;
 	void WrapMultiplyBy(int a) { return MultiplyBy(a); }
 };
 //Тест на присвоение значения элементу матрицы и его получения
