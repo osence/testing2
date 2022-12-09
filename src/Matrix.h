@@ -46,7 +46,7 @@ public:
 
     Matrix MultiplyOnMatrix(Matrix B) 
     {
-        if (B.getMSize() != n) { throw std::domain_error("matrix can't be multiply"); }
+        if (B.getMSize() != n) { throw std::out_of_range("Out of range"); }
         Matrix C(m, B.getNSize());
         for (int p = 0; p < m; p++){
             for (int v = 0; v < B.getNSize(); v++){
