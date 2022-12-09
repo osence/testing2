@@ -95,10 +95,10 @@ TEST(TestCaseMatrix, TestMultiplyMatrixByMatrixError) {
 	Matrix A(2, 3);
 	A.Element(0, 0) = 2;
 	A.Element(0, 1) = -1;
-	B.Element(0, 2) = 0;
+	A.Element(0, 2) = 0;
 	A.Element(1, 0) = 5;
 	A.Element(1, 1) = 3;
-	B.Element(1, 2) = 5;
+	A.Element(1, 2) = 5;
 
 	Matrix B(2, 3);
 	B.Element(0, 0) = 3;
