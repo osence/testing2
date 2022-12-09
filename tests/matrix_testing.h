@@ -91,7 +91,7 @@ TEST(TestCaseMatrix, TestMultiplyMatrixByMatrix) {
 }
 
 //Ňĺńň íŕ îďĺđŕöčţ óěíîćĺíč˙ ěŕňđčöű íŕ ěŕňđčöó
-TEST(TestCaseMatrix, TestMultiplyMatrixByMatrix) {
+TEST(TestCaseMatrix, TestMultiplyMatrixByMatrixError) {
 	Matrix A(2, 3);
 	A.Element(0, 0) = 2;
 	A.Element(0, 1) = -1;
