@@ -109,10 +109,13 @@ TEST(TestCaseMatrix, TestMultiplyMatrixByMatrixError) {
 	B.Element(1, 2) = 5;
 	    try {
 		Matrix C = A.MultiplyOnMatrix(B);
-		FAIL() << "matrix can't be multiply";
+		FAIL() << "Expected std::out_of_range";
 	    }
 	    catch(std::out_of_range const & err) {
-		EXPECT_EQ(err.what(),std::string("matrix can't be multiply"));
+		EXPECT_EQ(err.what(),std::string("Out of range"));
+	    }
+	    catch(...) {
+		FAIL() << "Expected std::out_of_range";
 	    }
 
 }
