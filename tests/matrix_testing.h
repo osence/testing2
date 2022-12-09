@@ -13,7 +13,7 @@ public:
 	using Matrix::Matrix;
 	void WrapMultiplyBy(int a) { return MultiplyBy(a); }
 };
-//Тест на присвоение значения элементу матрицы и его получения
+//Е‡ДєЕ„Е€ Г­Е• ДЏД‘ДЌЕ„ГўГ®ДєГ­ДЌДє Г§Г­Е•Г·ДєГ­ДЌЛ™ ГЅГ«ДєД›ДєГ­Е€Гі Д›Е•Е€Д‘ДЌГ¶Е± ДЌ ДєДѓГ® ДЏГ®Г«ГіГ·ДєГ­ДЌЛ™
 TEST(TestCaseMatrix, TestFindMatrixElement) {
 	Matrix M(5, 5);
 	M.Element(1, 2) = 3;
@@ -23,7 +23,7 @@ TEST(TestCaseMatrix, TestFindMatrixElement) {
 	EXPECT_EQ(M.Element(1, 4), 4);
 }
 
-//Тест на присвоение значения элементу матрицы и его получения
+//Е‡ДєЕ„Е€ Г­Е• ДЏД‘ДЌЕ„ГўГ®ДєГ­ДЌДє Г§Г­Е•Г·ДєГ­ДЌЛ™ ГЅГ«ДєД›ДєГ­Е€Гі Д›Е•Е€Д‘ДЌГ¶Е± ДЌ ДєДѓГ® ДЏГ®Г«ГіГ·ДєГ­ДЌЛ™
 TEST(TestCaseMatrix, TestCombineMatrixOperations) {
 	MatrixTest M(2, 2);
 	M.Element(0, 0) = 2;
@@ -49,7 +49,7 @@ TEST(TestCaseMatrix, TestCombineMatrixOperations) {
 
 }
 
-//Тест на операцию умножения матрицы на число
+//Е‡ДєЕ„Е€ Г­Е• Г®ДЏДєД‘Е•Г¶ДЌЕЈ ГіД›Г­Г®Д‡ДєГ­ДЌЛ™ Д›Е•Е€Д‘ДЌГ¶Е± Г­Е• Г·ДЌЕ„Г«Г®
 TEST(TestCaseMatrix, TestMultiplyMatrixByNumber) {
 	MatrixTest M(2, 2);
 	M.Element(0, 0) = 2;
@@ -65,7 +65,7 @@ TEST(TestCaseMatrix, TestMultiplyMatrixByNumber) {
 
 
 
-//Тест на операцию умножения матрицы на матрицу
+//Е‡ДєЕ„Е€ Г­Е• Г®ДЏДєД‘Е•Г¶ДЌЕЈ ГіД›Г­Г®Д‡ДєГ­ДЌЛ™ Д›Е•Е€Д‘ДЌГ¶Е± Г­Е• Д›Е•Е€Д‘ДЌГ¶Гі
 TEST(TestCaseMatrix, TestMultiplyMatrixByMatrix) {
 	Matrix A(2, 2);
 	A.Element(0, 0) = 2;
@@ -88,5 +88,32 @@ TEST(TestCaseMatrix, TestMultiplyMatrixByMatrix) {
 	EXPECT_EQ(C.Element(1, 0), 21);
 	EXPECT_EQ(C.Element(1, 1), 2);
 	EXPECT_EQ(C.Element(1, 2), 15);
+}
+
+//Е‡ДєЕ„Е€ Г­Е• Г®ДЏДєД‘Е•Г¶ДЌЕЈ ГіД›Г­Г®Д‡ДєГ­ДЌЛ™ Д›Е•Е€Д‘ДЌГ¶Е± Г­Е• Д›Е•Е€Д‘ДЌГ¶Гі
+TEST(TestCaseMatrix, TestMultiplyMatrixByMatrix) {
+	Matrix A(2, 3);
+	A.Element(0, 0) = 2;
+	A.Element(0, 1) = -1;
+	B.Element(0, 2) = 0;
+	A.Element(1, 0) = 5;
+	A.Element(1, 1) = 3;
+	B.Element(1, 2) = 5;
+
+	Matrix B(2, 3);
+	B.Element(0, 0) = 3;
+	B.Element(0, 1) = 1;
+	B.Element(0, 2) = 0;
+	B.Element(1, 0) = 2;
+	B.Element(1, 1) = -1;
+	B.Element(1, 2) = 5;
+	    try {
+		Matrix C = A.MultiplyOnMatrix(B);
+		FAIL() << "matrix can't be multiply";
+	    }
+	    catch(std::out_of_range const & err) {
+		EXPECT_EQ(err.what(),std::string("matrix can't be multiply"));
+	    }
+
 }
 #endif // MATRIX_H
